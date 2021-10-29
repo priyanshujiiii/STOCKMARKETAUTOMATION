@@ -1,0 +1,45 @@
+import GUI
+if a > price:
+    try:
+        orderparams = {
+            "variety": "NORMAL",
+            "tradingsymbol": token_info['symbol'],
+            "symboltoken": token_info['token'],
+            "transactiontype": "SELL",
+            "exchange": "NSE",
+            "ordertype": "LIMIT",
+            "producttype": "INTRADAY",
+            "duration": "DAY",
+            "price": price,
+            "squareoff": "0",
+            "stoploss": "0",
+            "quantity": qty,
+        }
+
+        orderId = LoginCredentials.obj.placeOrder(orderparams)
+        print("The order id is: {}".format(orderId))
+    except Exception as e:
+        print("Order placement failed: {}".format(e.message))
+else:
+    command = 'SELL'
+    try:
+        orderparams = {
+            "variety": "NORMAL",
+            "tradingsymbol": token_info['symbol'],
+            "symboltoken": token_info['token'],
+            "transactiontype": "BUY",
+            "exchange": "NSE",
+            "ordertype": "LIMIT",
+            "producttype": "INTRADAY",
+            "duration": "DAY",
+            "price": price,
+            "squareoff": "0",
+            "stoploss": "0",
+            "quantity": qty,
+        }
+
+        orderId = LoginCredentials.obj.placeOrder(orderparams)
+        print("The order id is: {}".format(orderId))
+    except Exception as e:
+        print("Order placement failed: {}".format(e.message))
+
